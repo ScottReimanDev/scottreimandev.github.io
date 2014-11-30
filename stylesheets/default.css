@@ -10,7 +10,7 @@ header {
 	height: 100px;
 	width: 60%;
 	padding-top: 10px;
-	margin-left: 200px;
+	margin-left: 174px;
 }
 
 nav {
@@ -18,7 +18,7 @@ nav {
 	width: 60%;
 	height: 30px;
 	background-color: #ffff99;
-	margin-left: 200px;
+	margin-left: 174px;
 }
 
 nav > h3 {
@@ -28,4 +28,16 @@ nav > h3 {
 a.nav:link {
 	padding-right: 35px;
 	padding-left: 35px;
+}
+
+#profile {
+	position: absolute;
+	margin-top: -140px;
+	margin-left: 0px;
+}
+
+#DBClogo {
+	position: absolute;
+	margin-top: -140px;
+	margin-left: 950px;
 }
