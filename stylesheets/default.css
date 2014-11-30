@@ -49,3 +49,8 @@ a.nav:link {
 	margin-left: 100px;
 	line-height: 1.5em;
 }
+
+footer {
+	position: relative;
+	margin-bottom: 10px;
+}
