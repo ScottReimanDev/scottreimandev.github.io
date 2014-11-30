@@ -8,5 +8,12 @@ header {
 	position: relative;
 	background-color: yellow;
 	height: 100px;
+	width: 75%;
 	padding-top: 10px;
+	margin-left: 150px;
+}
+
+nav {
+	position: relative;
+
 }
