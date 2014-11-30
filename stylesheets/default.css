@@ -52,5 +52,6 @@ a.nav:link {
 
 footer {
 	position: relative;
-	margin-bottom: 10px;
+    background-color: yellow;
+	width: 24%;
 }
