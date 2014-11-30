@@ -5,4 +5,8 @@ html {
 header {
 	text-align: center;
 	line-height: 0.5em;
+	position: relative;
+	background-color: yellow;
+	height: 100px;
+	padding-top: 10px;
 }
