@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+  <title>Scott Reiman's DBC Blog</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
+</head>
+
+<header>
+    <h1>Scott Reiman's DBC Phase 0 Website</h1>
+    <h2><em>My Technical Blogs</em></h2>
+  </header>
+
+  <nav>
+      <h3><a class="nav" href="../index.html">HOME</a></h3>
+      <h3><a class="nav" href="index.html">BLOGS</a></h3>
+      <h3><a class="nav" href="projects.html">PROJECTS</a></h3>
+      <h3><a class="nav" href="contact.html">CONTACT</a></h3>
+      <h3><a class="nav" href="about.com">ABOUT</a></h3>
+  </nav>
+
+<main>
+
+  <img id="profile" src="../images/Profile.jpeg" alt="profile">
+  <img id="DBCpic" src="../images/DBClogo.jpeg" alt="DBClogo">
+  
+  <section id="post">
+  <h2>Classes vs IDs</h2>
+  <h3>How Do I Know Which to Use?</h3>
+  <h4>11-30-2014</h4>
+    <p>
+        When you are writing HTML and CSS code, sometimes you need to style certain pieces of your HTML, but not others.  For example, you may have a several lists you are making.  What if you wanted to format one list a certain way, but you wanted to format all of the other lists a different way?  This is where classes and IDs come into play.  A class or an ID will allow you to reference that specific element, and then you can style it however you want, even if it is different from the rest of the elements.  If you attach a class or an ID to an element in HTML, you can reference that specific element or group of elements in CSS simply by recalling that class or ID.  Make sense?  I didn't think so.  Let's get into the difference between classes and IDs, and hopefully it will all start to come together.
+    </p>
+    <p>
+        We'll start with classes.  A class tag can be added to any element.  Classes must be given identifiers so that you can reference this when adding your CSS code.  Let's say I am making a website, and I want to list blog posts that I have created by the week in which they were written.  I can make tags for the individual weeks, but what if I want to style these tags?  I can underline them, put them in bold, italics, etc.  If I want to style all of these tags the same, then I need to add a class.  By adding the same class to each tag, I can style them all at the same time by referring to that class in my CSS code.  Let's look at an example:
+    <br>
+        <img id="class" src="../images/classexample.png" alt="class">
+    <br>
+        Looking at this code, you can see that under my header of "Cultural Blog Posts" I have three smaller headers that I want to read "Week 1", "Week 2" and "Week 3."  Since I want to style all three of those headers the same, I can assign them a class (in this case, I called the class "weeks"), and then I can reference that class to style them all at the same time.  To reference a class in CSS, you use a period followed by the class name.  In this case it would be ".weeks".  Again look at this example:
+    <br>
+        <img id="classcss" src="../images/classcss.png" alt="classcss">
+    <br>
+        You can see that in our CSS code, we have referenced the class "weeks" by typing ".weeks".  This opens up our brackets {}, and inside we can style every element that has the class "weeks."  In this case, we wanted to make all the language the color blue and have it all underlined.  You can see the result here:
+    <br>
+        <img id="siteweeks" src="../images/weeks.png" alt="weeks">
+    <br>
+        You can see how the labels "Week 1", "Week 2" and "Week 3" are all underlined and in blue now.  This was only a list of three things, but you can imagine how helpful using classes can be if we have many more items that we want to style all the same way.  Instead of having to style each individual element, with classes we can style them all at once.    
+    </p>
+    <p>
+        So if those are classes, then what are IDs?  IDs are very similar to classes in that they can be used to style individual HTML elements in CSS.  Unlike classes, though, IDs are unique to the element they get attached to.  If you only have one element that you want to style a certain way, then you can give it an ID.  Let's look at an expanded version of our previous example:
+    <br>
+        <img id="idexample" src="../images/IDexample.png" alt="id">
+    <br>
+        You can see that we have attached an ID "cultural" to encompass all of our "Cultural Blog Posts" and an ID of "technical" to encompass all of our "Technical Blog Posts".  This is because we want to position them differently on the page.  We therefore need to set different positioning parameters to each group of posts.  Now that we have assigned IDs, we need to style them in CSS.  Just like we used a period followed by the class name for classes, we use a hashtag followed by the ID name for IDs.  
+    <br>
+        <img id="idcss" src="../images/idcss.png" alt="idcss">
+    <br>
+        Don't worry about the actual content here.  All that matters is that we have two different IDs, and we are using each one to position our blogs posts in different places on the page.  If we had created a class instead of an ID, the two columns of posts would be on top of each other, as they would have the same parameters.  Instead, by using IDs, we get this:
+    <br>
+        <img id="idlists" src="../images/idlists.png" alt="idlists">
+    <br>            
+    </p>
+    <p>
+        So there you have it.  To sum up, classes are used to style a group of elements the same way, while IDs are used to style a single element a certain way.  Using classes and IDs can be a huge time-saver if you know how to use them correctly, and hopefully after reading this blog you are familiar enough with them to give them a shot on your own!  Happy coding!
+    </p>  
+  </section>
+
+  <footer>
+      <p>scottreiman77@gmail.com / Copyright &#169;2014</p>
+    </footer>
+</main>
