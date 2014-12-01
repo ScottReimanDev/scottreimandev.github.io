@@ -21,14 +21,19 @@
 	margin-left: 950px;
 }
 
-#profile {
+#profileblog {
 	position: absolute;
-	margin-top: -240px;
+	margin-top: -140px;
 	margin-left: 0px;
 }
 
 #post {
 	position: relative;
 	margin-top: 100px;
+}
+
+#profile {
+	position: absolute;
+	margin-top: -240px;
 }
 
