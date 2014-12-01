@@ -32,7 +32,7 @@ a.nav:link {
 
 #profile {
 	position: absolute;
-	margin-top: -140px;
+	margin-top: -240px;
 	margin-left: 0px;
 }
 
@@ -60,4 +60,9 @@ footer {
 
 #textbody > h2 {
 	text-align: center;
+}
+
+#profileindex {
+	position: absolute;
+	margin-top: -140px;
 }
