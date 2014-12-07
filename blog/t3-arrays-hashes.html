@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
   <title>Scott Reiman's DBC Blog</title>
   <meta charset="UTF-8">
@@ -29,19 +30,51 @@
   <h3>What Does It All Mean?!</h3>
   <h4>12-5-2014</h4>
     <p>
-      <!--Paragraph 1-->
+        This week in Phase 0 of DBC focused primarily on learning the basics of Ruby.  Ruby is one of the most commonly used languages to write code, so learning the basics is very important to the development of any programmer.  While there are many different elements in Ruby that I could discuss, I'm going to use this blog update to compare <strong>arrays</strong> and <strong>hashes</strong>.  While these two elements have a lot of similarites, they are also quite different.  
     </p>
     <p>
-        <!--Paragraph 2-->
+        First, let's start with arrays.  To put it simply, arrays are just lists that you store in your computer.  They are an excellent way to store any number of elements, whether they be words, numbers, entire strings of words, or basically anything else of which you can make a list.  Putting these items in an array helps ensure that they don't get mixed up with other variables.  The format of an array is to put your list in between brackets.  A sample array may look like this: <code>["Colts", "Pacers", "Giants", "Badgers"]</code>.  To recall an element in an array, each space is given a reference number.  The first spot is always referenced by the number "0".  So in our previous example, "Colts" would be item <strong>ZERO</strong> in our array, while "Badgers" would be item <strong>THREE</strong>.  If we were to name our array "fav_teams" by writing: <code> fav_teams = ["Colts", "Pacers", "Giants", "Badgers"] </code>, then to access the item "Pacers", we would write <code>puts fav_teams[1]</code> into our terminal.  Remember, "Pacers" is item <strong>1</strong> in our array, since it begins with <strong>0</strong>.  I know it's a little confusing, but you just have to remember to always start with zero!  Suppose we wanted to add an item to our array.  This is simple.  You would look for the next available spot in the array, which in this case would be <strong>4</strong>.  Then, in your terminal you would write <code>fav_teams[4] = "Seahawks"</code>.  This places "Seahawks" as the fifth item in the array.  
     </p>
     <p>
-        <!--Paragraph 3-->
+        Now let's say we want to do something to <strong>each</strong> item in the array at the same time.  In this case, we use the method ".each".  Let's say we wanted to express our love for all of the teams in our array.  The code would look like this: <pre><code>
+                                              fav_teams.each <strong>do</strong> |team|
+                                                puts 'I love the ' + team + '!'
+                                              <strong>end</strong> </code></pre>  
+        What this is saying, is that for <strong>each</strong> item in our array, what we want to <strong>do</strong> is apply the variable "team" (this is what we put in between the ||).  Then in the next line where we list "team", it would just replace that variable with the team from our array.  If we were to run the code above, we would get a result of: <pre><code> 
+                                              I love the Colts!
+                                              I love the Pacers!
+                                              I love the Giants!
+                                              I love the Badgers!
+                                              I love the Seahawks!</code></pre>
+        This is just one of the many examples of things we can do with arrays, but before we get too far, let's talk about hashes.
     </p>
+    <p>
+        Hashes are a lot like arrays.  The main difference is that hashes are used to assign a value to the items in your array.  Let's say we wanted to add the cities/states to the teams in our array.  For this, we would make a hash.  I'm going to focus on the most commonly used way to create a hash.  Using our array from before as the example, you would write the code like this: <pre><code>
+                                              team_hash = {}
+                                              team_hash['Indianapolis'] = 'Colts'
+                                              team_hash['Indiana'] = 'Pacers'
+                                              team_hash['San Francisco'] = 'Giants'
+                                              team_hash['Wisconsin'] = 'Badgers'
+                                              team_hash['Seattle'] = 'Seahawks'</code></pre> 
+        Now if we wanted to display the city/state with the team, we would use a method similar to that which we used on our array:  <pre><code>
+                                              team_hash.each do |city_state, team|
+                                                puts "#{city_state} #{team}"
+                                              end </code></pre>
+        If we were to run that code out of our terminal, we would get the result: <pre><code>
+                                              Indianapolis Colts
+                                              Indiana Pacers
+                                              San Francisco Giants
+                                              Wisconsin Badgers
+                                              Seattle Seahawks </pre></code>
+    </p>
+    <p>
+        So in summation, arrays are useful when you want to store an ordered list with a variable.  In an array, you are not assigning any values to the items in your list, but they are very easy to recall using simple code.  Hashes are useful when you want to assign values to an unordered list.  These vaules can be anything at all.  For example, in the above hash, we could have assigned the teams the value of "sport" instead of "city_state", and then listed the sport each team plays rather than where they play.  Both arrays and hashes are a very important and very useful part of Ruby.  They can be tricky to understand at first, but once you have them down, you can use them often without even having to think about the syntax.  Happy coding!
+    </p>
+        
 
-      <!-- copy and paste as many sections as you want to add paragraphs -->
   </section>
   <footer>
       <p>scottreiman77@gmail.com / Copyright &#169;2014</p>
     </footer>
 </main>
-
+</html>
