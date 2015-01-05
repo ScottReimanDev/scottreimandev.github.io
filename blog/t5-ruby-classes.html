@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scott Reiman's DBC Blog</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
+</head>
+
+<header>
+    <h1>Scott Reiman's DBC Phase 0 Website</h1>
+    <h2><em>My Technical Blogs</em></h2>
+  </header>
+
+  <nav>
+      <h3><a class="nav" href="../index.html">HOME</a></h3>
+      <h3><a class="nav" href="index.html">BLOGS</a></h3>
+      <h3><a class="nav" href="projects.html">PROJECTS</a></h3>
+      <h3><a class="nav" href="contact.html">CONTACT</a></h3>
+      <h3><a class="nav" href="about.com">ABOUT</a></h3>
+  </nav>
+
+<main>
+
+  <img id="profile" src="../images/Profile.jpeg" alt="profile">
+  <img id="DBCpic" src="../images/DBClogo.jpeg" alt="DBClogo">
+  
+  <section id="post">
+  <h2>Classin' Up the Joint</h2>
+  <h3>All About Classes</h3>
+  <h4>1-4-2015</h4>
+    <p>
+      One of the focuses of this past week of Dev Bootcamp has been the introduction of <strong>classes</strong> into our coding repertoire. At first, this was a totally new and foreign concept to me.  However, after utilizing classes in numerous challenges all week, I think I am finally starting to get the hang of it.  Hopefully after explaining classes in detail to you through this blog post, not only will you understand what they are all about, but I will, too!  So let's just jump right in, shall we?  What is a class?  To put it simply (hopefully), a class is an object that contains methods used to differentiate one object from another.  Just reading that back to myself, it sounds totally confusing.  Maybe we're better off just looking at an example.
+    </p>
+    <p>
+      The following is an example of a class.  Take a look at it, and then I'll explain what everything means below.
+      <pre><code>
+      1          Class Football_Player
+      2
+      3            def initialize(name, team, position, number)
+      4              @name = name
+      5              @team = team
+      6              @position = position
+      7              @number = number
+      8            end
+      9
+      10           def player_info
+      11             puts "#{@name} plays for the #{@team}. He plays #{@position} and is number #{number}. "
+      12           end
+      13
+      14           def team
+      15             puts "#{@name} plays for the #{@team}."
+      16           end
+      17
+      18           def position
+      19             puts "#{@name} plays #{@position}."
+      20           end
+      21
+      22           def number
+      23             puts "#{@name} is number #{@number}."
+      24           end
+      25         end
+      26
+      27         Peyton = Football_Player.new(Peyton Manning, Denver Broncos, Quarterback, 18)
+      28         TY = Football_Player.new(TY Hilton, Indianapolis Colts, Wide Receiver, 13)
+      29         JJ = Football_Player.new(JJ Watt, Houston Texans, Defensive End, 99)
+    </code></pre>
+    </p>
+    <p>
+      I understand that what you just read can be a bit overwhelming, so I'll take it one step at a time.  The first thing we did was create our class.  We are going to use this class to give attributes to football players, so we'll call it Football_Player.  You always want the name of your class to begin with a capital letter.  After we created the class, it was time to introduce a few methods.  The first method we used, and you will always use when creating a class, is the <strong>initialize</strong> method.  It is within this method that you will determine what variables you want to set for your class.  In this case, I am going to assign a name, a team, a position and a number to my football players.  I could have added countless others, such as height, weight, college, years in NFL, etc.  What I did on lines 4-7 was create what are known as <strong>instance variables</strong>.  An instance variable can be used in any method inside the class in which it is initialized, and it always begins with an @ sign.  So the four instance variables we created for our football player (@name, @team, @position, @number) can all be used throughout our Football_Player class.  Now we can define our methods that will give us the information we enter in lines 27-29.  Every time we call for an instance variable in any of our four defined methods from line 10 to line 24, it will plug in the information we filled in for our three example players.  All we have to do is call the method on the player name we created.  For example:
+      <pre><code>
+                 Peyton.player_info
+                 TY.player_info
+                 JJ.player_info
+                 TY.team
+                 JJ.position
+                 Peyton.number
+
+                 "Peyton Manning plays for the Denver Broncos.  He plays Quarterback and is number 18."
+                 "TY Hilton plays for the Indianapolis Colts.  He plays Wide Receiver and is number 13."
+                 "JJ Watt plays for the Houston Texans.  He plays Defensive End and is number 99."
+                 "TY Hilton plays for the Indianapolis Colts."
+                 "JJ Watt plays Defensive End."
+                 "Peyton Manning is number 18."
+               </code></pre>
+    </p>
+    <p>
+      So, as you can see, classes are great for when you want to print something out many times without wanting to type in the entire sentence every time.  If we wanted to print the player info for every player that made the Pro Bowl this year, we would just have to put their information into a new variable like we did above on lines 27-29, then we could call the player_info method on each player, just like we did above with each player.  Depending on how many players we want to show the information for, this could be a huge time saver.  There are countless other things you can do with classes, but this should be enough to get you started.  If you want to learn more about classes and what they can do, I would suggest checking out this <a href="http://www.tutorialspoint.com/ruby/ruby_classes.htm">tutorial</a>.  Happy coding!
+    </p>
+ 
+  </section>
+  <footer>
+      <p>scottreiman77@gmail.com / Copyright &#169;2014</p>
+    </footer>
+</main>
+</html>
