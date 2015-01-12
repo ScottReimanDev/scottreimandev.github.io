@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scott Reiman's DBC Blog</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
+</head>
+
+<header>
+    <h1>Scott Reiman's DBC Phase 0 Website</h1>
+    <h2><em>My Technical Blogs</em></h2>
+  </header>
+
+  <nav>
+      <h3><a class="nav" href="../index.html">HOME</a></h3>
+      <h3><a class="nav" href="index.html">BLOGS</a></h3>
+      <h3><a class="nav" href="projects.html">PROJECTS</a></h3>
+      <h3><a class="nav" href="contact.html">CONTACT</a></h3>
+      <h3><a class="nav" href="about.com">ABOUT</a></h3>
+  </nav>
+
+<main>
+
+  <img id="profile" src="../images/Profile.jpeg" alt="profile">
+  <img id="DBCpic" src="../images/DBClogo.jpeg" alt="DBClogo">
+  
+  <section id="post">
+  <h2>Variable Scope</h2>
+  <h3>When and Where to Use What and Why</h3>
+  <h4>1-10-2015</h4>
+    <p>
+      This week I learned all about variable scope.  It was a concept that I had come across once or twice in my reading during Phase 0 thus far, but I hadn't paid it too much attention.  Up until now, we were mostly using local and instance variables (I'll get into those in a bit), so I was familiar with those.  Now, though, we were learning about global, class and constant variables.  Two different kinds of variables I can handle no problem, but now there are five?  I'll go through these variables one at a time, letting you know when to use each kind and why.
+    </p>
+    <p>
+      The first kind of variable we'll go over is probably the most often used, and that's a local variable.  Local variables are only accessible inside the code construct in which they are declared.  For example, a local variable declared in a method or within a loop cannot be accessed outside of that method or loop.  Local variable names must always begin either with a lower case letter or an underscore.  For example:
+      <code><pre>
+                      local_variable = 5
+                      _localvariable = 5
+                      _LocalVariable = 5</pre></code>
+
+      While the second two options are both acceptable, the first one is preferable for its readability.  Most of the time, when you are defining a variable outside of a method or class, you are going to use a local variable.  This variable will stay true for the duration of the program, as long as you call it outside of a method or class or redefine the variable.  
+    </p>
+    <p>
+      The next kind of variable we'll discuss is the class variable.  A class variable is one that is shared among all instances of a class.  This means that only one variable value exists for all objects created from this class.  If one object instance changes the value of the variable, that new value will change for all other instances of the object.  Class variables are always declared by typing "@@" before the name of the variable.  They should also begin with a lowercase letter after the @@ signs.  For example: <code><pre>
+                      @@class_variable = 5 (acceptable)
+                      @@Class_variable = 5 (unacceptable)</pre></code>
+
+      Class variables are not nearly as common as instance variables, which we'll learn about next.  
+    </p>
+    <p>
+      Instance variables are similar to class variables, except that their values are local to specific instances of an object.  Instance variables are always declared by typing "@" before the name of the variable.  They should also begin with a lowercase letter.  For example: <code><pre>
+                      @sum = 5 (acceptable)
+                      @Sum = 5 (unacceptable)</pre></code>
+
+      In the case that a class contains an instance variable called @sum, if one instance of the object changes the current value of @sum, then the change is local to only the object that made the change.  Other objects of the same class have their own local copies of the variable, which are independent of changes made in any other objects.  Instance variables are used much more inside methods and classes than class variables are.  As local variables are the ones most used outside of methods or classes, instance variables are the ones most used inside methods or classes.  
+    </p>
+    <p>
+      Global variables in Ruby are accessible from anywhere in the life of a Ruby program, regardless of where they are declared.  Global variables are declared by putting a dollar sign ($) in front of the variable name.  For example: <code><pre>
+                      $sum = 5 (acceptable)
+                      $Sum = 5 (unacceptable)</pre></code>
+
+      The usage of global variables in highly discouraged.  The problem with global variables is, not only are the visible anywhere in the code for a program, they can also be changed from anywhere in the application.  This can make tracking bugs extremely difficult, because the programmer won't know where to look for the bug to fix.  
+    </p>
+    <p>
+      The last kind of variable we'll discuss in this post is the constant variable.  Constants in Ruby are variables which, once assigned a value, should not be changed.  Unlike most other languages, a constant variable CAN be changed in Ruby, but the terminal will issue a warning message when the user attempts to change a constant variable.  Constant variables assigned inside a class or module can be accessed only inside that class or module, while a constant variable assigned outside a class or module will take on the scope of a global variable.  Constants may not be defined inside of methods.  Constants are defined by using all capital letters.  For example: <code><pre>
+                      CONSTANT = 10 (acceptable)
+                      constant = 10 (unacceptable)</pre></code>
+
+      As with global variables, the use of constants is not advised.  Like I mentioned before, local and instance variables will be the most commonly used.
+    </p>
+    <p>
+      Throughout development, you are going to encounter several different types of variables, all with a different scope of when and where they should be used.  Becoming familiar with the variables and what they can do will make your life as a developer much easier.  Happy coding!
+    </p>  
+ 
+  </section>
+  <footer>
+      <p>scottreiman77@gmail.com / Copyright &#169;2014</p>
+    </footer>
+</main>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
