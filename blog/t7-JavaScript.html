@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scott Reiman's DBC Blog</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
+</head>
+
+<header>
+    <h1>Scott Reiman's DBC Phase 0 Website</h1>
+    <h2><em>My Technical Blogs</em></h2>
+  </header>
+
+  <nav>
+      <h3><a class="nav" href="../index.html">HOME</a></h3>
+      <h3><a class="nav" href="index.html">BLOGS</a></h3>
+      <h3><a class="nav" href="projects.html">PROJECTS</a></h3>
+      <h3><a class="nav" href="contact.html">CONTACT</a></h3>
+      <h3><a class="nav" href="about.com">ABOUT</a></h3>
+  </nav>
+
+<main>
+
+  <img id="profile" src="../images/Profile.jpeg" alt="profile">
+  <img id="DBCpic" src="../images/DBClogo.jpeg" alt="DBClogo">
+  
+  <section id="post">
+  <h2>JavaScript vs Ruby</h2>
+  <h3>Objects vs Hashes</h3>
+  <h4>1-17-2015</h4>
+    <p>
+      This week at Dev Bootcamp we started learning about JavaScript.  This marks the fourth official language that we have learned in seven weeks.  Along with HTML, CSS and Ruby, JavaScript will form the foundation for what we know heading into the official start of DBC Phase 1.  JavaScript has many similarities to Ruby, and that has made learning it a little easier.  While there are many similiarities, there are also a lot of subtle differences between JavaScript and Ruby that keep you on your toes while doing the actual programming.  In this blog post, I am going to get into a few of those differences, focusing mainly on the differences and similarities between <strong>Hashes</strong> in Ruby and <strong>Objects</strong> in JavaScript.
+    </p>
+    <p>
+      Starting out simply, Ruby and JS have two different ways of outputting information to the terminal.  In Ruby, there are two main ways of outputting data to the console.  Those two ways are with "puts" or "print" statements.  The difference between the two is that a "puts" statement displays information to the terminal and then begins a new line.  A "print" statement, however, will just print out information to the console without starting a new line.  For example: <code><pre>
+
+                          puts "This is a puts statement"
+                          puts "Puts statements start a new line!"
+                          print "This is a print statement"
+                          puts "It didn't start a new line!"
+
+                          This is a puts statement
+                          Puts statements start a new line!
+                          This is a print statementIt didn't start a new line!</pre></code>
+
+      When outputting information to the console in JS, you use the function "console.log("Information")".  This is just like a "puts" statement in Ruby.  For example: <code><pre>
+
+                          console.log("This is just like a puts statement!")
+                          console.log("Because it starts a new line!")
+
+                          This is just like a puts statement!
+                          Because it starts a new line!</code></pre>
+
+      So, with this example you can see how Ruby and JS are similar in ways they output information to the terminal, they just use different wording and syntax to accomplish this.  
+    </p>
+    <p>
+      Those are some very basic similiarities and differences between Ruby and JS.  Getting a little more in depth, we can look at how hashes in Ruby are similar and different from Objects in JS.  Hashes and Objects are similar in what they look to achieve.  They are both group of properties that assign values to each of those properties.  To show an example of this, let's say we are making a football video game, and we want to assign values to various traits of a player's skill level.  We want to put those traits and values into one block of information.  In Ruby, these are called hashes, while in JS, these are called objects.  Let's take a look at each. 
+    </p>
+    <p>
+      In Ruby, there are two basic ways for creating hashes.  In both situations we are creating what are known as "key/value pairs".  A key/value pair has an identifier to signify which variable of the hash you want to access and a variable to store in the position in the hash.  Let's say we wanted to create a hash for each player in our game, and use that hash to store ratings for various skills, such as speed, strength, intelligence and ability to break tackles.  We could create our hash like this: <code><pre>
+
+                          andrew_luck = Hash.new
+                          andrew_luck["speed"] = 80
+                          andrew_luck["strength"] = 75
+                          andrew_luck["intel"] = 95
+                          andrew_luck["break_tackle"] = 85</pre></code>
+
+      Now we can access those values by entering the following code: <code><pre>
+
+                          puts andrew_luck["speed"]
+                          puts andrew_luck["intel"]
+
+                          80
+                          95</pre></code>
+
+      Another way to create a hash is to enter is everything as a key/value pair directly.  For example: <code><pre>
+
+                          ty_hilton = { "speed" => 98,
+                                        "strength" => 70,
+                                        "intel" => 90,
+                                        "break_tackle" => 85 }</pre></code>
+
+      Again, we can now access those values the same way as before: <code><pre>
+
+                          puts ty_hilton["speed"]
+                          puts ty_hilton["break_tackle"]
+
+                          98
+                          85</pre></code>
+
+      There are lots of different ways to manipulate a hash once it is created, including adding and deleting items, changing values, etc.  If you are interested in learning about the different functions and methods you can perform on hashes in Ruby, you can visit this <a href="http://ruby-doc.org/core-1.9.3/Hash.html">Ruby Docs</a> page for assistance.
+    <p>
+      So now that we've covered hashes in Ruby, let's see how we would do the same thing in JavaScript.  In JS, hashes serve the same purpose, but they are called objects.  We can create objects in a very similar fashion to the way we create hashes in Ruby.  Here is how we would create an object, using the same example we did for Ruby hashes: <code><pre>
+
+                          var reggie_wayne = {
+                              speed: 70,
+                              strength: 65,
+                              intel: 100,
+                              break_tackle: 50,
+                          };</pre></code>
+
+      Notice that we defined our object "reggie_wayne" by placing the prefix "var" in front.  Also, notice how quotes are not needed around our attributes as they were in Ruby.  Now, if we wanted to call one of the above values, we would type the following: <code><pre>
+
+                          console.log(reggie_wayne.speed)
+                          console.log(reggie_wayne.intel)
+
+                          70
+                          100</pre></code>
+
+      As you can see, outside of wording and syntax differences, there are many similarities to using hashes vs using objects.  As with the Ruby Docs document I gave you in the last paragraph, if you want to learn more about JS Objects, a good resource can be found <a href="http://eloquentjavascript.net/04_data.html">here</a>.
+    </p>
+    <p>
+      In learning these different languages, it has been interesting to see some of the similarities and differences between them.  I can see how learning each new language can become both easier and more difficult as we learn them.  On the one hand, we are already familiar with the intentions of certain methods and functions before we learn them.  On the other hand, there can be a whole new group of words and syntax that we must become familiar with, and it can become confusing as to what syntax is used for which language.  At the very least, you should now be familiar with the similarities and differences between Ruby hashes and JavaScript objects.  Happy coding!
+    </p> 
+ 
+  </section>
+  <footer>
+      <p>scottreiman77@gmail.com / Copyright &#169;2014</p>
+    </footer>
+</main>
+</html>
