@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scott Reiman's DBC Blog</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css">
+</head>
+
+<header>
+    <h1>Scott Reiman's DBC Phase 0 Website</h1>
+    <h2><em>My Technical Blogs</em></h2>
+  </header>
+
+  <nav>
+      <h3><a class="nav" href="../index.html">HOME</a></h3>
+      <h3><a class="nav" href="index.html">BLOGS</a></h3>
+      <h3><a class="nav" href="projects.html">PROJECTS</a></h3>
+      <h3><a class="nav" href="contact.html">CONTACT</a></h3>
+      <h3><a class="nav" href="about.com">ABOUT</a></h3>
+  </nav>
+
+<main>
+
+  <img id="profile" src="../images/Profile.jpeg" alt="profile">
+  <img id="DBCpic" src="../images/DBClogo.jpeg" alt="DBClogo">
+  
+  <section id="post">
+  <h2>Test-Driven Development</h2>
+  <h3>My Kind of Test</h3>
+  <h4>1-24-2015</h4>
+    <p>
+      In the development world, there are many different processes by which code is written.  The one that is utilized the most at Dev Bootcamp is <strong><em>Test-Driven Development</em></strong>, or <strong><em>TDD</em></strong>.  TDD is a process that relies on the repetition of a very short development cycle.  There are five basic steps in TDD, and I'm going to use an exercise known as "FizzBuzz" to explain how the process works.  The FizzBuzz exercise is a classic programming challenge that is often used in interviews to test a programmer's coding acumen.  The basic idea is to write a program that will accept an array of numbers, and then return that same array of numbers, except the numbers that are evenly divisible by 3 are replaced by the word "Fizz", the numbers that are evenly divisible by 5 are replaced by the word "Buzz" and numbers that are divisible by both 3 and 5 are replaced by the word "FizzBuzz".  
+    </p>
+    <p>
+      The first step is adding what is known as <strong><em>Driver Test Code</em></strong>.  Driver test code are equations that, when your program is functional, will all return as true.  For the FizzBuzz exercise, I want to write driver test code that will make sure that the correct numbers are being replaced by the correct words.  I know that the method I am going to create to write this program will be called "super_fizzbuzz", so I can go ahead and create driver test code that looks like the following:<code><pre>
+
+                            p super_fizzbuzz([3]) == ["Fizz"]
+                            p super_fizzbuzz([5]) == ["Buzz"]
+                            p super_fizzbuzz([15]) == ["FizzBuzz"]
+                            p super_fizzbuzz([1, 2, 3]) == [1, 2, "Fizz"]
+                            p super_fizzbuzz([15, 5, 3, 1]) == ["FizzBuzz", "Buzz", "Fizz", 1]</pre></code>
+
+      You can that what I did here, is I called my super_fizzbuzz method on several different arrays, and made them equal to what the output should be when the program is running functionally.  When the program is working correctly, the above five statements should all output to "true".  As long as I am getting an error, or one of the statements is returning "false", then I know that I have to make changes to my code. 
+    </p>
+    <p>
+      The next step is to run the tests and see what is failing.  When you are writing a program from scratch, you know that all the tests are going to fail, because you haven't written any code yet!  For example, if I run the tests right now before I write any of the program, I get the following message:<code><pre>
+
+                            my_solution.rb:39:in `main: undefined method `super_fizzbuzz' for main:Object (NoMethodError)</pre></code>
+
+      Basically what this error message is telling me is that my method "super_fizzbuzz" has not been defined yet, but we already know that!  Because we are just beginning writing this program, we can move on to the next step and revisit this one later.
+    </p>
+    <p>
+      The next step is writing some code!  The goal here is to write code that causes the tests to pass.  This code is not going to be perfect.  It is basically a rough draft that will get your point across.  This is ok, because we are going to improve our code in a future step.  After a little thinking and manipulating, this is what I came up with for my initial solution to this problem:<code><pre>
+
+          def super_fizzbuzz(array)
+            array.map! { |x| x % 3 == 0 ? x = "Fizz" : x % 5 == 0 ? x = "Buzz" : (x % 3 == 0) && (x % 5 == 0) ? x = "FizzBuzz" : x = x }
+          end</pre></code>
+
+      Without going into too much detail, this program is basically saying that for a number (represented as "x"), that when dividied by 3 the remainder is zero, replace that number with the word "Fizz".  The same is true for "Buzz" and "FizzBuzz" based on the specifications of the program.  Now that I've written my code, its time to move on to step four.
+    <p>
+      Step four is to run the tests again.  Now that we've got our code, we can run it with the tests, and if everything returns as "true", then our program works!  So let's run it and see what we get:<code><pre>
+
+                            true
+                            true
+                            false
+                            true
+                            false</pre></code>
+
+      Uh oh.  Something isn't right!  Our third and fifth test code are coming back false.  If the first, second and fourth seem to be running as planned, then it looks like there is something wrong with our "FizzBuzz" part of the code.  Since our code isn't passing, we have to jump back to step three and continue to work on it until everything passes.
+    </p>
+    <p>
+      One way to look for what isn't working is to run the program the way it is intended and see what the result is.  I put the following tests (different from driver test code) into my program to find the results:<code><pre>
+
+                            p super_fizzbuzz([1, 2, 3])
+                            p super_fizzbuzz([15, 16, 17])
+                            p super_fizzbuzz([3, 5, 15])</pre></code>
+
+      Rather than setting this equal to what the output should be, I am going to actually run it and see what is returned.  When I run the above code with my program, I get this result:<code><pre>
+
+                            [1, 2, "Fizz"]
+                            ["Fizz", 16, 17]
+                            ["Fizz", "Buzz", "Fizz"]</pre></code>
+
+      OK!  Now we're getting somewhere.  Where there should be a "FizzBuzz", we are getting a "Fizz" instead.  After some thinking and examining, I figured out that the reason I was getting this return, was because if the program determined that a number was indeed divisible by 3, it was not continuing to see if the number was ALSO divisible by 5, therefore automatically returning "Fizz".  After making the appropriate changes, my new code looked like this:<code><pre>
+
+def super_fizzbuzz(array)
+  array.map! { |x| x % 3 == 0 && x % 5 != 0 ? x = "Fizz" : x % 5 == 0 && x % 3 != 0? x = "Buzz" : (x % 3 == 0) && (x % 5 == 0) ? x = "FizzBuzz" : x = x }
+end</pre></code>
+
+      With this new code, I ensured that the program would only return "Fizz" if the number was both divisible by 3 and NOT divisible by 5.  Now I need to run this new code with both my tests and my driver test code to see the results:<code><pre>
+
+def super_fizzbuzz(array)
+  array.map! { |x| x % 3 == 0 && x % 5 != 0 ? x = "Fizz" : x % 5 == 0 && x % 3 != 0? x = "Buzz" : (x % 3 == 0) && (x % 5 == 0) ? x = "FizzBuzz" : x = x }
+end
+
+                            p super_fizzbuzz([1, 2, 3])
+                            p super_fizzbuzz([15, 16, 17])
+                            p super_fizzbuzz([3, 5, 15])
+
+                            p super_fizzbuzz([3]) == ["Fizz"]
+                            p super_fizzbuzz([5]) == ["Buzz"]
+                            p super_fizzbuzz([15]) == ["FizzBuzz"]
+                            p super_fizzbuzz([1, 2, 3]) == [1, 2, "Fizz"]
+                            p super_fizzbuzz([15, 5, 3, 1]) == ["FizzBuzz", "Buzz", "Fizz", 1]
+
+                            [1, 2, "Fizz"]
+                            ["FizzBuzz", 16, 17]
+                            ["Fizz", "Buzz", "FizzBuzz"]
+                            true
+                            true
+                            true
+                            true
+                            true</pre></code>
+
+      Hooray! All of our driver test code returned as "true", and our tests have the right words in the correct places!  Now we can move on to step five, which is to see if there is any way we can improve our already functioning code, also known as <strong><em>refactoring</em></strong>.
+    </p> 
+    <p>
+      When looking at my initial solution, it occurred to me that if I asked the program to check and see if a number was divisible by both 3 AND 5 before I asked it to check for each of those numbers individually, then I could get rid of the part that I added initially to make it work when I was getting the "false" returns.  After re-arranging the code a little bit, I had new code that I was ready to run with my tests and driver test code to make sure it still worked:<code><pre>
+
+                def super_fizzbuzz(array)
+                  array.map! { |x| x % 3 == 0 && x % 5 == 0 ? x = "FizzBuzz" : x % 3 == 0 ? x = "Fizz" : x % 5 == 0 ? x = "Buzz" : x = x }
+                end
+
+                            p super_fizzbuzz([1, 2, 3])
+                            p super_fizzbuzz([15, 16, 17])
+                            p super_fizzbuzz([3, 5, 15]) 
+
+                            p super_fizzbuzz([3]) == ["Fizz"]
+                            p super_fizzbuzz([5]) == ["Buzz"]
+                            p super_fizzbuzz([15]) == ["FizzBuzz"]
+                            p super_fizzbuzz([1, 2, 3]) == [1, 2, "Fizz"]
+                            p super_fizzbuzz([15, 5, 3, 1]) == ["FizzBuzz", "Buzz", "Fizz", 1]
+
+                            [1, 2, "Fizz"]
+                            ["FizzBuzz", 16, 17]
+                            ["Fizz", "Buzz", "FizzBuzz"]
+                            true
+                            true
+                            true
+                            true
+                            true</pre></code>
+
+      It still works!  Success!  As a newbie programmer, I can tell you that there are few greater feelings in TDD than, after hours of refactoring and running test code over and over again, finally getting everything to return as "true".  There will be times when it gets incredibly frustrating, thinking that you've FINALLY figured it out, only to keep getting a return of "false".  TDD is great in that it causes you to really disect your code and figure out where things went wrong.  Also, because you test as you code, with TDD it is difficult to get pushed too far off track.  You can't move on until your tests pass, which means an error you make can't screw everything up that you write in the future.  If you're interested in learning more about Test-Driven Development, there is a great resource <a href="http://agiledata.org/essays/tdd.html">here</a> that you should check out!  Happy coding!
+    </p>
+ 
+  </section>
+  <footer>
+      <p>scottreiman77@gmail.com / Copyright &#169;2014</p>
+    </footer>
+</main>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
