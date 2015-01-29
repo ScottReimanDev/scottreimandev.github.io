@@ -1,6 +1,6 @@
 .weeks {
 	text-decoration: underline;
-	color: red;
+	color: #4E0013;
 }
 
 #cultural {
@@ -11,7 +11,7 @@
 
 #technical {
 	position: absolute;
-	margin-top: -689px;
+	margin-top: -685px;
 	margin-left: 700px;
 }
 
