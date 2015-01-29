@@ -57,7 +57,7 @@
             array.map! { |x| x % 3 == 0 ? x = "Fizz" : x % 5 == 0 ? x = "Buzz" : (x % 3 == 0) && (x % 5 == 0) ? x = "FizzBuzz" : x = x }
           end</pre></code>
 
-      Without going into too much detail, this program is basically saying that for a number (represented as "x"), that when dividied by 3 the remainder is zero, replace that number with the word "Fizz".  The same is true for "Buzz" and "FizzBuzz" based on the specifications of the program.  Now that I've written my code, its time to move on to step four.
+      Without going into too much detail, this program is basically saying that for a number (represented as "x"), that when divided by 3 the remainder is zero, replace that number with the word "Fizz".  The same is true for "Buzz" and "FizzBuzz" based on the specifications of the program.  Now that I've written my code, its time to move on to step four.
     <p>
       Step four is to run the tests again.  Now that we've got our code, we can run it with the tests, and if everything returns as "true", then our program works!  So let's run it and see what we get:<code><pre>
 
@@ -141,7 +141,7 @@ end
                             true
                             true</pre></code>
 
-      It still works!  Success!  As a newbie programmer, I can tell you that there are few greater feelings in TDD than, after hours of refactoring and running test code over and over again, finally getting everything to return as "true".  There will be times when it gets incredibly frustrating, thinking that you've FINALLY figured it out, only to keep getting a return of "false".  TDD is great in that it causes you to really disect your code and figure out where things went wrong.  Also, because you test as you code, with TDD it is difficult to get pushed too far off track.  You can't move on until your tests pass, which means an error you make can't screw everything up that you write in the future.  If you're interested in learning more about Test-Driven Development, there is a great resource <a href="http://agiledata.org/essays/tdd.html">here</a> that you should check out!  Happy coding!
+      It still works!  Success!  As a newbie programmer, I can tell you that there are few greater feelings in TDD than, after hours of refactoring and running test code over and over again, finally getting everything to return as "true".  There will be times when it gets incredibly frustrating, thinking that you've FINALLY figured it out, only to keep getting a return of "false".  TDD is great in that it causes you to really dissect your code and figure out where things went wrong.  Also, because you test as you code, with TDD it is difficult to get pushed too far off track.  You can't move on until your tests pass, which means an error you make can't screw everything up that you write in the future.  If you're interested in learning more about Test-Driven Development, there is a great resource <a href="http://agiledata.org/essays/tdd.html">here</a> that you should check out!  Happy coding!
     </p>
  
   </section>
